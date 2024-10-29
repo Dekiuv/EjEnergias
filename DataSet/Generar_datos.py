@@ -90,11 +90,7 @@ with open(r'C:\Users\joant\OneDrive\Stucom\MasterIA\IA\Exercicis\Sistemes Expert
         personas_vivienda = random.randint(max(1, ciudades_personas_vivienda[ciudad] - 2), ciudades_personas_vivienda[ciudad] + 2)
 
         # CALCULAR EL CONSUM A PARTIR DE LES DADES OBTINGUDES
-        consumo = round(estaciones[estacion] + (personas_vivienda * precio_energia), 2)  # consumo en kWh, con 2 decimales
+        consumo = round(estaciones[estacion] + (personas_vivienda * precio_energia), 2)     
 
-
-        
-        
-
-        # Escribir fila
+        # ESCRIURE CSV
         writer.writerow([id_dni, nombre, consumo, ciudad, personas_vivienda, precio_energia, tipo_energia, renovable, estacion])
