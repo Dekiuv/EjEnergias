@@ -1,0 +1,151 @@
+id,nombre,consumo,ciudad,personas_vivienda,precio_energia,tipo_energia,renovable,estacion
+28424013S,Laura,0.94,Barcelona,4,0.06,hidroeléctrica,1,Invierno
+36181109Q,Laura,0.96,Murcia,6,0.11,gas natural,0,Verano
+93039165W,Ana,1.1,San Sebastián,5,0.08,eólica,1,Invierno
+51337978T,Javier,1.18,Castellón,6,0.08,eólica,1,Invierno
+79833429S,Sara,0.92,Murcia,2,0.11,gas natural,0,Invierno
+44076455Z,Iván,1.48,Bilbao,6,0.13,biomasa,1,Invierno
+76261984X,Pedro,1.1,Las Palmas,4,0.1,solar,1,Invierno
+83122625G,Joan,0.81,Granada,1,0.11,gas natural,0,Invierno
+13460541K,Silvia,0.96,Valencia,2,0.13,biomasa,1,Invierno
+40613750M,María,0.54,Salamanca,3,0.08,eólica,1,Verano
+28810327K,Pedro,0.56,Murcia,2,0.13,biomasa,1,Verano
+59415532T,Pedro,0.43,Alicante,1,0.13,biomasa,1,Verano
+53750186Z,Carmen,1.26,Palma,4,0.14,carbón,0,Invierno
+61623715E,Luis,1.15,Madrid,3,0.15,maremotriz,1,Invierno
+18710159G,Joan,1.2,Valladolid,6,0.15,maremotriz,1,Verano
+77202142C,David,0.9,Sevilla,2,0.1,solar,1,Invierno
+71496035Y,Iván,0.94,Almería,4,0.06,hidroeléctrica,1,Invierno
+50145476W,Fernando,1.42,Madrid,6,0.12,nuclear,0,Invierno
+53780270Z,Pedro,0.4,San Sebastián,1,0.1,solar,1,Verano
+79292962W,Raúl,0.5,Bilbao,2,0.1,solar,1,Verano
+90932218Q,Javier,0.74,Las Palmas,4,0.11,gas natural,0,Verano
+49357255Z,Salim,0.42,Málaga,2,0.06,hidroeléctrica,1,Verano
+94088244M,María,0.5,Valladolid,2,0.1,solar,1,Verano
+58029657J,Fernando,0.92,Murcia,2,0.11,gas natural,0,Invierno
+68621609M,Cristina,0.95,Las Palmas,5,0.13,biomasa,1,Verano
+55160762T,Joan,0.5,Valencia,2,0.1,solar,1,Verano
+61686736T,Lucía,0.9,Castellón,2,0.1,solar,1,Invierno
+36613328L,Teresa,1.48,Granada,6,0.13,biomasa,1,Invierno
+84364183E,Iván,0.52,Valencia,2,0.11,gas natural,0,Verano
+35256665B,Fernando,0.78,Bilbao,1,0.08,eólica,1,Invierno
+33600475M,Teresa,1.15,Valencia,5,0.09,geotérmica,1,Invierno
+46974433S,Lucía,0.66,Las Palmas,4,0.09,geotérmica,1,Verano
+27391791X,Rafael,1.3,Tenerife,4,0.15,maremotriz,1,Invierno
+87846597Y,María,0.85,Valencia,1,0.15,maremotriz,1,Invierno
+80512330W,Joan,0.9,Zaragoza,4,0.15,maremotriz,1,Verano
+76704573X,Cesar,1.35,Valencia,5,0.13,biomasa,1,Invierno
+18880965N,Salim,0.6,Barcelona,2,0.15,maremotriz,1,Verano
+59035867L,Laura,1.3,Almería,5,0.12,nuclear,0,Invierno
+53764120X,Carlos,1.24,Palma,6,0.09,geotérmica,1,Invierno
+57399048H,Cristina,0.83,Almería,1,0.13,biomasa,1,Invierno
+86601771D,Ana,1.02,Alicante,6,0.12,nuclear,0,Verano
+87798119N,Joan,0.86,Las Palmas,4,0.14,carbón,0,Verano
+67987429G,Pedro,0.54,Madrid,2,0.12,nuclear,0,Verano
+12800855K,Pedro,1.0,Murcia,5,0.14,carbón,0,Verano
+11884280L,Manuel,0.41,Valencia,1,0.11,gas natural,0,Verano
+59402101R,Pedro,0.6,Granada,5,0.06,hidroeléctrica,1,Verano
+23521536B,Joan,1.6,Tenerife,6,0.15,maremotriz,1,Invierno
+98975673A,Iván,0.83,Córdoba,1,0.13,biomasa,1,Invierno
+16410946D,Joan,1.18,Zaragoza,6,0.08,eólica,1,Invierno
+61066064Y,Rafael,1.42,Castellón,6,0.12,nuclear,0,Invierno
+16335232B,Fernando,0.83,Alicante,1,0.13,biomasa,1,Invierno
+27245983E,Manuel,1.3,Valencia,4,0.15,maremotriz,1,Invierno
+85700216P,Cesar,0.54,Valladolid,4,0.06,hidroeléctrica,1,Verano
+65642755L,Cesar,1.6,Barcelona,6,0.15,maremotriz,1,Invierno
+17084188H,Rafael,0.43,San Sebastián,1,0.13,biomasa,1,Verano
+45629899S,Lucía,1.45,Sevilla,5,0.15,maremotriz,1,Invierno
+30013003G,Carmen,0.88,Palma,2,0.09,geotérmica,1,Invierno
+56686809C,Laura,1.02,Granada,4,0.08,eólica,1,Invierno
+14423713E,Carlos,1.2,Bilbao,5,0.1,solar,1,Invierno
+34228438E,Diego,0.43,Valencia,1,0.13,biomasa,1,Verano
+63049879W,Lucía,0.82,Almería,1,0.12,nuclear,0,Invierno
+31704317J,Cristina,0.82,Sevilla,1,0.12,nuclear,0,Invierno
+43457908Y,María,0.9,Murcia,2,0.1,solar,1,Invierno
+47234871R,Paula,1.06,Las Palmas,4,0.09,geotérmica,1,Invierno
+19564615X,Manuel,1.36,Málaga,6,0.11,gas natural,0,Invierno
+44692032L,Laura,0.54,Zaragoza,3,0.08,eólica,1,Verano
+78571968N,Rafael,1.0,Salamanca,3,0.1,solar,1,Invierno
+66158367V,Teresa,0.54,Granada,4,0.06,hidroeléctrica,1,Verano
+38738446Y,Laura,0.92,San Sebastián,2,0.11,gas natural,0,Invierno
+28821691T,Fernando,0.88,Sevilla,3,0.06,hidroeléctrica,1,Invierno
+48124213W,Teresa,1.18,Granada,4,0.12,nuclear,0,Invierno
+60076167Y,Raúl,0.54,Barcelona,2,0.12,nuclear,0,Verano
+80756454G,Salim,1.6,San Sebastián,6,0.15,maremotriz,1,Invierno
+37785744X,Carlos,0.84,San Sebastián,1,0.14,carbón,0,Invierno
+47297598F,Luis,0.6,Almería,3,0.1,solar,1,Verano
+24954518R,Sara,0.82,Córdoba,1,0.12,nuclear,0,Invierno
+81453190R,Joan,0.82,Palma,4,0.13,biomasa,1,Verano
+32334873R,José,0.6,Oviedo,3,0.1,solar,1,Verano
+37965197V,Teresa,0.9,Palma,2,0.1,solar,1,Invierno
+92921425E,Paula,1.18,Sevilla,6,0.08,eólica,1,Invierno
+18534892C,Teresa,1.0,Valencia,5,0.06,hidroeléctrica,1,Invierno
+14213031C,Luis,1.15,Sevilla,3,0.15,maremotriz,1,Invierno
+17505573C,Silvia,0.78,Sevilla,1,0.08,eólica,1,Invierno
+32983843A,Pedro,1.03,Barcelona,3,0.11,gas natural,0,Invierno
+74120818Y,Fernando,1.02,Bilbao,4,0.08,eólica,1,Invierno
+50258997H,María,0.57,Castellón,3,0.09,geotérmica,1,Verano
+20927145C,Pedro,0.84,Oviedo,1,0.14,carbón,0,Invierno
+89647688J,Carmen,1.12,Tenerife,3,0.14,carbón,0,Invierno
+40388241B,Silvia,1.0,Valencia,5,0.14,carbón,0,Verano
+23169062N,Raúl,1.15,Madrid,3,0.15,maremotriz,1,Invierno
+29644068N,Raúl,0.9,Castellón,4,0.15,maremotriz,1,Verano
+61694823Z,Ana,0.45,Sevilla,1,0.15,maremotriz,1,Verano
+89679307F,Sara,0.96,Valencia,2,0.13,biomasa,1,Invierno
+24331960F,Iván,0.98,Palma,2,0.14,carbón,0,Invierno
+33885016J,Sara,0.39,Sevilla,1,0.09,geotérmica,1,Verano
+77073762A,Carlos,1.3,Córdoba,5,0.12,nuclear,0,Invierno
+91160587H,Paula,0.9,Barcelona,6,0.1,solar,1,Verano
+58205852M,Ana,1.48,Valencia,6,0.13,biomasa,1,Invierno
+52008104K,Pedro,1.25,San Sebastián,5,0.11,gas natural,0,Invierno
+99565067E,Diego,0.74,Bilbao,4,0.11,gas natural,0,Verano
+43266174T,Raúl,0.84,Castellón,6,0.09,geotérmica,1,Verano
+47463381Y,Rafael,0.95,Castellón,5,0.13,biomasa,1,Verano
+21675828F,Teresa,1.0,San Sebastián,5,0.06,hidroeléctrica,1,Invierno
+16823336D,José,0.54,Zaragoza,3,0.08,eólica,1,Verano
+79717874N,Joan,0.63,Las Palmas,3,0.11,gas natural,0,Verano
+24785178X,Cristina,0.7,Málaga,4,0.1,solar,1,Verano
+62266519E,Carlos,1.25,Alicante,5,0.11,gas natural,0,Invierno
+76148700R,Diego,0.98,Madrid,2,0.14,carbón,0,Invierno
+13406621J,Diego,0.43,Zaragoza,1,0.13,biomasa,1,Verano
+47300669L,Luis,1.1,Oviedo,4,0.1,solar,1,Invierno
+25801360Y,Luis,0.4,Zaragoza,1,0.1,solar,1,Verano
+95388477W,Manuel,0.54,Tenerife,4,0.06,hidroeléctrica,1,Verano
+67863359L,María,0.75,Murcia,5,0.09,geotérmica,1,Verano
+36173583B,Teresa,0.52,Alicante,2,0.11,gas natural,0,Verano
+66663130E,Cesar,0.94,Córdoba,4,0.06,hidroeléctrica,1,Invierno
+41035276X,Javier,1.2,Valencia,6,0.15,maremotriz,1,Verano
+37957651S,Cesar,0.69,Las Palmas,3,0.13,biomasa,1,Verano
+54796501J,Sara,0.66,Córdoba,3,0.12,nuclear,0,Verano
+33136699R,José,0.72,Almería,3,0.14,carbón,0,Verano
+43829596Z,Rafael,1.02,Valladolid,6,0.12,nuclear,0,Verano
+10844935K,Ana,0.48,Málaga,2,0.09,geotérmica,1,Verano
+88681210H,José,0.45,Valladolid,1,0.15,maremotriz,1,Verano
+83352620E,Fernando,1.3,Oviedo,5,0.12,nuclear,0,Invierno
+83294815Q,Pedro,0.69,Sevilla,3,0.13,biomasa,1,Verano
+12255137R,Lucía,1.18,Palma,6,0.08,eólica,1,Invierno
+93828552Y,Fernando,0.9,Tenerife,4,0.15,maremotriz,1,Verano
+52851085Y,Carmen,1.1,Zaragoza,5,0.08,eólica,1,Invierno
+50062472M,Sara,1.0,Tenerife,5,0.06,hidroeléctrica,1,Invierno
+65160565R,Paula,0.86,Granada,4,0.14,carbón,0,Verano
+20893780M,Carmen,0.44,San Sebastián,1,0.14,carbón,0,Verano
+49625579C,David,0.57,Las Palmas,3,0.09,geotérmica,1,Verano
+26513956Q,Javier,0.54,Salamanca,3,0.08,eólica,1,Verano
+43702806T,Salim,1.0,Valladolid,5,0.06,hidroeléctrica,1,Invierno
+50158361F,María,0.84,Palma,6,0.09,geotérmica,1,Verano
+62131430N,Carmen,0.83,Palma,1,0.13,biomasa,1,Invierno
+26197455H,María,0.82,Palma,4,0.13,biomasa,1,Verano
+49498517X,Manuel,0.46,Granada,2,0.08,eólica,1,Verano
+73079165T,Cristina,0.79,Barcelona,1,0.09,geotérmica,1,Invierno
+64054594P,Carmen,1.6,San Sebastián,6,0.15,maremotriz,1,Invierno
+83393958Y,Laura,0.9,Oviedo,5,0.12,nuclear,0,Verano
+92737457P,Lucía,0.75,Tenerife,5,0.09,geotérmica,1,Verano
+25265819C,Carmen,0.94,Bilbao,4,0.06,hidroeléctrica,1,Invierno
+90462843W,José,0.52,Córdoba,2,0.11,gas natural,0,Verano
+55139481V,Carmen,0.54,Valencia,4,0.06,hidroeléctrica,1,Verano
+47285540R,José,1.3,Zaragoza,6,0.1,solar,1,Invierno
+58497267X,Carmen,0.88,Barcelona,2,0.09,geotérmica,1,Invierno
+59291707F,Sara,0.88,Tenerife,2,0.09,geotérmica,1,Invierno
+93754511W,Rafael,0.86,Málaga,4,0.14,carbón,0,Verano
+35184369G,María,0.98,Murcia,2,0.14,carbón,0,Invierno
+65193989Y,David,0.48,Tenerife,3,0.06,hidroeléctrica,1,Verano
