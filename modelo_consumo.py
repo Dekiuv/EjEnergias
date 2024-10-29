@@ -14,6 +14,7 @@ df = pd.get_dummies(df, columns=['tipo_energia', 'estacion'], drop_first=True)
 
 # Dividir los datos en características (X) y variable objetivo (y)
 X = df.drop('consumo', axis=1)  # Variables de entrada
+print("X",X.columns)
 y = df['consumo']               # Variable objetivo
 
 # Dividir el conjunto de datos en entrenamiento y prueba (80%-20%)
@@ -36,3 +37,35 @@ print(f"Error cuadrático medio (MSE): {mse}")
 print("Coeficientes del modelo:")
 for feature, coef in zip(X.columns, model.coef_):
     print(f"{feature}: {coef}")
+
+# Crear tu nuevo dato con las mismas columnas
+nuevo_dato = {
+    'personas_vivienda': [3],
+    'precio_energia': [0.25],
+    'renovable': [0],
+    # Incluir las columnas dummy correspondientes:
+    'tipo_energia_eólica': [0],
+    'tipo_energia_gas natural': [1],   # Asumimos que la fuente de energía es gas natural
+    'tipo_energia_hidroeléctrica': [0],
+
+    # 'tipo_energia_carbón': [0],
+    'tipo_energia_nuclear': [0],
+    'tipo_energia_solar': [0],
+    # 'tipo_energia_geotérmica': [0],
+    # 'estacion_invierno': [0],
+    'estacion_Verano': [1],             # Por ejemplo, si estás en verano
+    # 'estacion_otoño': [0],
+    # 'estacion_primavera': [0]
+}
+
+# Crear un DataFrame para el nuevo dato
+nuevo_dato_df = pd.DataFrame(nuevo_dato)
+
+# Verifica las columnas de nuevo_dato_df para asegurarte de que coincidan con X
+print("Columnas de nuevo_dato_df:")
+print(nuevo_dato_df.columns)
+
+# Hacer la predicción con el modelo
+prediccion = model.predict(nuevo_dato_df)
+
+print(f"Consumo predicho: {prediccion[0]}")
