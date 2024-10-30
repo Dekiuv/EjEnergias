@@ -1,6 +1,7 @@
 import streamlit as st
 from modelo_consumo import predecir_consumo
 from modelo_tipo import clasificar_energia
+from modelo_npersonas import calcular_personas
 
 # Título del formulario
 st.title("Formulario de Registro")
@@ -70,9 +71,9 @@ elif st.session_state.show_form == "form_2":
         if energy_consume <= 0 or energy_price <= 0 or  renovable == "" or station == "":
             st.error("Todos los campos deben ser completados.")
         else:
-            st.success("Formulario 2 enviado exitosamente!")
-            st.write(energy_consume,energy_price,station,renovable)
-
+            nºpersonas = calcular_personas(energy_consume,energy_price,energy_price,renovable,station)
+            st.metric(label="Personas estimadas", value=f"{nºpersonas}")
+            
             # Aquí puedes añadir el método para procesar los datos ingresados
 
 elif st.session_state.show_form == "form_3":
