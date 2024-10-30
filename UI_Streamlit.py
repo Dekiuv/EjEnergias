@@ -72,6 +72,7 @@ elif st.session_state.show_form == "form_2":
         if energy_consume <= 0 or energy_price <= 0 or  renovable == "" or station == "":
             st.error("Todos los campos deben ser completados.")
         else:
+            renovable = 1 if renovable == "Sí" else 0
             nºpersonas = calcular_personas(energy_consume,energy_price,energy_type,renovable,station)
             st.metric(label="Personas estimadas", value=f"{nºpersonas}")
             
