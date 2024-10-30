@@ -3,78 +3,86 @@ import streamlit as st
 # Título del formulario
 st.title("Formulario de Registro")
 
+# Inicializar session_state para rastrear qué formulario mostrar
+if "show_form" not in st.session_state:
+    st.session_state.show_form = None
+
+# CSS para fijar el ancho de cada botón
+st.markdown("""
+    <style>
+    .button-container {
+        display: flex;
+        justify-content: space-around;
+    }
+    .stButton button {
+        width: 200px; /* Ajusta el tamaño según tus necesidades */
+        padding: 10px 0;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# Crear los botones dentro de un contenedor para aplicar el CSS
+st.markdown('<div class="button-container">', unsafe_allow_html=True)
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    show_form_1 = st.button("Predecir Consumo")
+    if st.button("Predecir Consumo"):
+        st.session_state.show_form = "form_1"
 with col2:
-    show_form_2 = st.button("Calcular nºpersonas del habitage")
+    if st.button("Calcular nºpersonas del habitage"):
+        st.session_state.show_form = "form_2"
 with col3:
-    show_form_3 = st.button("Clasificar por tipo")
-    
-if show_form_1:
+    if st.button("Clasificar por tipo"):
+        st.session_state.show_form = "form_3"
+st.markdown('</div>', unsafe_allow_html=True)
+
+# Mostrar el formulario según el botón seleccionado y almacenado en session_state
+if st.session_state.show_form == "form_1":
     st.header("Predecir Consumo")
-    nºperson = st.number_input("Número de personas en la vivienda:", min_value=1, step=1)
-    energy_price = st.number_input("Precio de la energía:", min_value=0.0, step=0.1) 
-    renovable = st.selectbox("Energia renovable:", ["", "Sí", "No"])
-    station = st.selectbox("Estación del año:", ["", "Invierno", "Verano"])
-    
+    nºperson = st.number_input("Número de personas en la vivienda:", min_value=1, step=1, key="nºperson_Form1")
+    energy_price = st.number_input("Precio de la energía:", min_value=0.0, step=0.1, key="energy_price_Form1")
+    renovable = st.selectbox("Energia renovable:", ["", "Sí", "No"],key="renovable_Form1")
+    station = st.selectbox("Estación del año:", ["", "Invierno", "Verano"],key="station_Form1")
+
     # Botón para enviar los datos
-    if st.button("Enviar Formulario 1"):
-        if not nºperson or not energy_price or station == "" or renovable == "":
+    if st.button("Enviar Formulario Predecir Consumo"):
+        if  energy_price <= 0 or station == "" or renovable == "":
             st.error("Todos los campos deben ser completados.")
         else:
             st.success("Formulario 1 enviado exitosamente!")
+            st.write(nºperson,energy_price,station,renovable)
+            # Aquí puedes añadir el método para procesar los datos ingresados
 
-elif show_form_2:
+elif st.session_state.show_form == "form_2":
     st.header("Calcular nºpersonas del habitage")
-    energy_consume = st.number_input("Consumo de la energía:", min_value=0.0, step=0.1) 
-    energy_price = st.number_input("Precio de la energía:", min_value=0.0, step=0.1) 
-    energy_type = st.selectbox("Tipo de energía:", ["", "Solar","Eólica","Hidroeléctrica","Nuclear","Carbón","Gas natural"])
-    renovable = st.selectbox("Energia renovable:", ["", "Sí", "No"])
-    station = st.selectbox("Estación del año:", ["", "Invierno", "Verano"])
+    energy_consume = st.number_input("Consumo de la energía:", min_value=0.0, step=0.1,key="energy_consume_Form2")
+    energy_price = st.number_input("Precio de la energía:", min_value=0.0, step=0.1,key="energy_price_Form2")
+    energy_type = st.selectbox("Tipo de energía:", ["", "Solar", "Eólica", "Hidroeléctrica", "Nuclear", "Carbón", "Gas natural"],key="energy_type_Form2")
+    renovable = st.selectbox("Energia renovable:", ["", "Sí", "No"],key="renovable_Form2")
+    station = st.selectbox("Estación del año:", ["", "Invierno", "Verano"],key="station_Form2")
+
     # Botón para enviar los datos
-    if st.button("Enviar Formulario 2"):
-        if not energy_consume or pais == "":
+    if st.button("Enviar Formulario Calcular NºPersonas del Habitage"):
+        if energy_consume <= 0 or energy_price <= 0 or energy_type == "" or renovable == "" or station == "":
             st.error("Todos los campos deben ser completados.")
         else:
             st.success("Formulario 2 enviado exitosamente!")
-            st.write("**Nombre Completo:**", nombre)
-            st.write("**Edad:**", edad)
-            st.write("**País de residencia:**", pais)
+            st.write(energy_consume,energy_price,energy_type,station,renovable)
 
-elif show_form_3:
-    st.header("Formulario 3")
-    producto = st.text_input("Producto:")
-    cantidad = st.number_input("Cantidad:", min_value=1, step=1)
-    precio = st.number_input("Precio por unidad:", min_value=0.0, step=0.01)
-    
+            # Aquí puedes añadir el método para procesar los datos ingresados
+
+elif st.session_state.show_form == "form_3":
+    st.header("Clasificar por tipo")
+    energy_consume = st.number_input("Consumo de la energía:", min_value=0.0, step=0.1,key="energy_consume_Form3")
+    nºperson = st.number_input("Número de personas en la vivienda:", min_value=1, step=1,key="nºperson_Form3")
+    renovable = st.selectbox("Energia renovable:", ["", "Sí", "No"],key="renovable_Form3")
+
     # Botón para enviar los datos
-    if st.button("Enviar Formulario 3"):
-        if not producto or precio <= 0:
+    if st.button("Enviar Formulario Clasificar Por Tipo de Energía"):
+        if energy_consume <= 0 or renovable == "":
             st.error("Todos los campos deben ser completados correctamente.")
         else:
             st.success("Formulario 3 enviado exitosamente!")
-            st.write("**Producto:**", producto)
-            st.write("**Cantidad:**", cantidad)
-            st.write("**Precio por unidad:**", precio)
-            st.write("**Total:**", cantidad * precio)
+            st.write(energy_consume,nºperson,renovable)
 
-
-# # Campos del formulario
-# station = st.selectbox("Estación del año:", ["", "Invierno", "Verano"])
-# nºperson = st.number_input("Número de personas en la vivienda:", min_value=1, step=1)
-# energy_Type = st.selectbox("Tipo de energía:", ["", "Solar","Eólica","Hidroeléctrica","Nuclear","Carbón","Gas natural"])
-
-# # Botón para enviar los datos
-# if st.button("Enviar"):
-#     # Verificar si algún campo está vacío
-#     if station == "" or energy_Type == "":
-#         st.error("Todos los campos deben ser completados.")
-#     else:
-#             # Mostrar los resultados
-#             st.success("Formulario enviado exitosamente!")
-#             st.write("**Estación del año:**", station)
-#             st.write("**Número de personas en la vivienda:**", nºperson)
-#             st.write("**Tipo de energía:**", energy_Type)
- 
+            # Aquí puedes añadir el método para procesar los datos ingresados
