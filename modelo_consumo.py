@@ -73,4 +73,4 @@ def predecir_consumo(n_personas: int ,precio_energia: float, renovable:int, esta
     # Hacer la predicción con el modelo
     prediccion = model.predict(nuevo_dato_df)
 
-    print(f"Consumo predicho: {prediccion[0]}")
+    return round(prediccion[0],2)

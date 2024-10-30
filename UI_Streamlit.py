@@ -1,5 +1,6 @@
 import streamlit as st
 from modelo_consumo import predecir_consumo
+from modelo_tipo import clasificar_energia
 
 # Título del formulario
 st.title("Formulario de Registro")
@@ -51,11 +52,9 @@ if st.session_state.show_form == "form_1":
         if  energy_price <= 0 or energy_type =="" or station == "" or renovable == "":
             st.error("Todos los campos deben ser completados.")
         else:
-            st.success("Formulario 1 enviado exitosamente!")
             renovable = 1 if renovable == "Sí" else 0
             # Aquí puedes añadir el método para procesar los datos ingresados
             consume = predecir_consumo(n_personas=nºperson,precio_energia=energy_price,renovable=renovable,estacion=station,tipo_energia=energy_type)
-
             st.metric(label="Consumo estimado", value=f"{consume} kWh")
 
 
@@ -63,17 +62,16 @@ elif st.session_state.show_form == "form_2":
     st.header("Calcular nºpersonas del habitage")
     energy_consume = st.number_input("Consumo de la energía:", min_value=0.0, step=0.1,key="energy_consume_Form2")
     energy_price = st.number_input("Precio de la energía:", min_value=0.0, step=0.1,key="energy_price_Form2")
-    energy_type = st.selectbox("Tipo de energía:", ["", "Solar", "Eólica", "Hidroeléctrica", "Nuclear", "Carbón", "Gas natural"],key="energy_type_Form2")
     renovable = st.selectbox("Energia renovable:", ["", "Sí", "No"],key="renovable_Form2")
     station = st.selectbox("Estación del año:", ["", "Invierno", "Verano"],key="station_Form2")
 
     # Botón para enviar los datos
     if st.button("Enviar Formulario Calcular NºPersonas del Habitage"):
-        if energy_consume <= 0 or energy_price <= 0 or energy_type == "" or renovable == "" or station == "":
+        if energy_consume <= 0 or energy_price <= 0 or  renovable == "" or station == "":
             st.error("Todos los campos deben ser completados.")
         else:
             st.success("Formulario 2 enviado exitosamente!")
-            st.write(energy_consume,energy_price,energy_type,station,renovable)
+            st.write(energy_consume,energy_price,station,renovable)
 
             # Aquí puedes añadir el método para procesar los datos ingresados
 
@@ -88,7 +86,5 @@ elif st.session_state.show_form == "form_3":
         if energy_consume <= 0 or renovable == "":
             st.error("Todos los campos deben ser completados correctamente.")
         else:
-            st.success("Formulario 3 enviado exitosamente!")
-            st.write(energy_consume,nºperson,renovable)
-
-            # Aquí puedes añadir el método para procesar los datos ingresados
+            tipo_clasificacion = clasificar_energia(energy_consume, nºperson, renovable)
+            st.write(f"Tipo de energía clasificada: {tipo_clasificacion}")
