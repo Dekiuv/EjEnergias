@@ -53,7 +53,9 @@ if st.session_state.show_form == "form_1":
         else:
             st.success("Formulario 1 enviado exitosamente!")
             #st.write(nºperson,energy_price,station,renovable)
-            predecir_consumo(nºperson,energy_price, 1 if renovable == "Sí" else 0,station,energy_type)
+            renovable = 1 if renovable == "Sí" else 0
+
+            predecir_consumo(nºperson,energy_price,renovable,station,energy_type)
             # Aquí puedes añadir el método para procesar los datos ingresados
 
 elif st.session_state.show_form == "form_2":

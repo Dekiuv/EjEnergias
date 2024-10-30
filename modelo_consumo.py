@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-def predecir_consumo(n_personas: int ,precio_energia: float, renovable:int, estacion:str):
+def predecir_consumo(n_personas: int ,precio_energia: float, renovable:int, estacion:str, tipo_energia : str):
 
     # Leer los datos
     df = pd.read_csv('datos_consumo.csv')
@@ -44,20 +44,10 @@ def predecir_consumo(n_personas: int ,precio_energia: float, renovable:int, esta
     nuevo_dato = {
         'personas_vivienda': [n_personas],
         'precio_energia': [precio_energia],
+        'tipo_energia': [tipo_energia],
         'renovable': [renovable],
-        # Incluir las columnas dummy correspondientes:
-        'tipo_energia_eólica': [0],
-        'tipo_energia_gas natural': [1],   # Asumimos que la fuente de energía es gas natural
-        'tipo_energia_hidroeléctrica': [0],
-
-        # 'tipo_energia_carbón': [0],
-        'tipo_energia_nuclear': [0],
-        'tipo_energia_solar': [0],
-        # 'tipo_energia_geotérmica': [0],
-        # 'estacion_invierno': [0],
-        'estacion_Verano': [1],             # Por ejemplo, si estás en verano
-        # 'estacion_otoño': [0],
-        # 'estacion_primavera': [0]
+        
+        
     }
 
     # Crear un DataFrame para el nuevo dato
