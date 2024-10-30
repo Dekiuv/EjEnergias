@@ -3,69 +3,71 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-# Leer los datos
-df = pd.read_csv('datos_consumo.csv')
+def predecir_consumo(n_personas: int ,precio_energia: float, renovable:int, estacion:str):
 
-# Seleccionar las características relevantes y eliminar las columnas innecesarias
-df = df[['consumo', 'personas_vivienda', 'precio_energia', 'tipo_energia', 'renovable', 'estacion']]
+    # Leer los datos
+    df = pd.read_csv('datos_consumo.csv')
 
-# Codificar variables categóricas (tipo_energia y estacion)
-df = pd.get_dummies(df, columns=['tipo_energia', 'estacion'], drop_first=True)
+    # Seleccionar las características relevantes y eliminar las columnas innecesarias
+    df = df[['consumo', 'personas_vivienda', 'precio_energia', 'tipo_energia', 'renovable', 'estacion']]
 
-# Dividir los datos en características (X) y variable objetivo (y)
-X = df.drop('consumo', axis=1)  # Variables de entrada
-print("X",X.columns)
-y = df['consumo']               # Variable objetivo
+    # Codificar variables categóricas (tipo_energia y estacion)
+    df = pd.get_dummies(df, columns=['tipo_energia', 'estacion'], drop_first=True)
 
-# Dividir el conjunto de datos en entrenamiento y prueba (80%-20%)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    # Dividir los datos en características (X) y variable objetivo (y)
+    X = df.drop('consumo', axis=1)  # Variables de entrada
+    print("X",X.columns)
+    y = df['consumo']               # Variable objetivo
 
-# Crear el modelo de regresión lineal
-model = LinearRegression()
+    # Dividir el conjunto de datos en entrenamiento y prueba (80%-20%)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Entrenar el modelo
-model.fit(X_train, y_train)
+    # Crear el modelo de regresión lineal
+    model = LinearRegression()
 
-# Hacer predicciones en el conjunto de prueba
-y_pred = model.predict(X_test)
+    # Entrenar el modelo
+    model.fit(X_train, y_train)
 
-# Calcular el error cuadrático medio (MSE) para evaluar el modelo
-mse = mean_squared_error(y_test, y_pred)
-print(f"Error cuadrático medio (MSE): {mse}")
+    # Hacer predicciones en el conjunto de prueba
+    # y_pred = model.predict(X_test)
 
-# Mostrar los coeficientes del modelo
-print("Coeficientes del modelo:")
-for feature, coef in zip(X.columns, model.coef_):
-    print(f"{feature}: {coef}")
+    # # Calcular el error cuadrático medio (MSE) para evaluar el modelo
+    # mse = mean_squared_error(y_test, y_pred)
+    # print(f"Error cuadrático medio (MSE): {mse}")
 
-# Crear tu nuevo dato con las mismas columnas
-nuevo_dato = {
-    'personas_vivienda': [3],
-    'precio_energia': [0.25],
-    'renovable': [0],
-    # Incluir las columnas dummy correspondientes:
-    'tipo_energia_eólica': [0],
-    'tipo_energia_gas natural': [1],   # Asumimos que la fuente de energía es gas natural
-    'tipo_energia_hidroeléctrica': [0],
+    # # Mostrar los coeficientes del modelo
+    # print("Coeficientes del modelo:")
+    # for feature, coef in zip(X.columns, model.coef_):
+    #     print(f"{feature}: {coef}")
 
-    # 'tipo_energia_carbón': [0],
-    'tipo_energia_nuclear': [0],
-    'tipo_energia_solar': [0],
-    # 'tipo_energia_geotérmica': [0],
-    # 'estacion_invierno': [0],
-    'estacion_Verano': [1],             # Por ejemplo, si estás en verano
-    # 'estacion_otoño': [0],
-    # 'estacion_primavera': [0]
-}
+    # Crear tu nuevo dato con las mismas columnas
+    nuevo_dato = {
+        'personas_vivienda': [n_personas],
+        'precio_energia': [precio_energia],
+        'renovable': [renovable],
+        # Incluir las columnas dummy correspondientes:
+        'tipo_energia_eólica': [0],
+        'tipo_energia_gas natural': [1],   # Asumimos que la fuente de energía es gas natural
+        'tipo_energia_hidroeléctrica': [0],
 
-# Crear un DataFrame para el nuevo dato
-nuevo_dato_df = pd.DataFrame(nuevo_dato)
+        # 'tipo_energia_carbón': [0],
+        'tipo_energia_nuclear': [0],
+        'tipo_energia_solar': [0],
+        # 'tipo_energia_geotérmica': [0],
+        # 'estacion_invierno': [0],
+        'estacion_Verano': [1],             # Por ejemplo, si estás en verano
+        # 'estacion_otoño': [0],
+        # 'estacion_primavera': [0]
+    }
 
-# Verifica las columnas de nuevo_dato_df para asegurarte de que coincidan con X
-print("Columnas de nuevo_dato_df:")
-print(nuevo_dato_df.columns)
+    # Crear un DataFrame para el nuevo dato
+    nuevo_dato_df = pd.DataFrame(nuevo_dato)
 
-# Hacer la predicción con el modelo
-prediccion = model.predict(nuevo_dato_df)
+    # Verifica las columnas de nuevo_dato_df para asegurarte de que coincidan con X
+    print("Columnas de nuevo_dato_df:")
+    print(nuevo_dato_df.columns)
 
-print(f"Consumo predicho: {prediccion[0]}")
+    # Hacer la predicción con el modelo
+    prediccion = model.predict(nuevo_dato_df)
+
+    print(f"Consumo predicho: {prediccion[0]}")

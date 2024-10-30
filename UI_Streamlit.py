@@ -1,4 +1,5 @@
 import streamlit as st
+from modelo_consumo import predecir_consumo
 
 # Título del formulario
 st.title("Formulario de Registro")
@@ -50,7 +51,9 @@ if st.session_state.show_form == "form_1":
             st.error("Todos los campos deben ser completados.")
         else:
             st.success("Formulario 1 enviado exitosamente!")
-            st.write(nºperson,energy_price,station,renovable)
+            #st.write(nºperson,energy_price,station,renovable)
+
+            predecir_consumo(nºperson,energy_price,renovable,station)
             # Aquí puedes añadir el método para procesar los datos ingresados
 
 elif st.session_state.show_form == "form_2":
