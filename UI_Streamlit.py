@@ -48,15 +48,16 @@ if st.session_state.show_form == "form_1":
 
     # Botón para enviar los datos
     if st.button("Enviar Formulario Predecir Consumo"):
-        if  energy_price <= 0 or station == "" or renovable == "":
+        if  energy_price <= 0 or energy_type =="" or station == "" or renovable == "":
             st.error("Todos los campos deben ser completados.")
         else:
             st.success("Formulario 1 enviado exitosamente!")
-            #st.write(nºperson,energy_price,station,renovable)
             renovable = 1 if renovable == "Sí" else 0
-
-            predecir_consumo(nºperson,energy_price,renovable,station,energy_type)
             # Aquí puedes añadir el método para procesar los datos ingresados
+            consume = predecir_consumo(n_personas=nºperson,precio_energia=energy_price,renovable=renovable,estacion=station,tipo_energia=energy_type)
+
+            st.metric(label="Consumo estimado", value=f"{consume} kWh")
+
 
 elif st.session_state.show_form == "form_2":
     st.header("Calcular nºpersonas del habitage")
