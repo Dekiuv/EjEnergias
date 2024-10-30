@@ -42,6 +42,7 @@ if st.session_state.show_form == "form_1":
     st.header("Predecir Consumo")
     nºperson = st.number_input("Número de personas en la vivienda:", min_value=1, step=1, key="nºperson_Form1")
     energy_price = st.number_input("Precio de la energía:", min_value=0.0, step=0.1, key="energy_price_Form1")
+    energy_type = st.selectbox("Tipo de energía:", ["", "Solar", "Eólica", "Hidroeléctrica", "Nuclear", "Carbón", "Gas natural"],key="energy_type_Form2")
     renovable = st.selectbox("Energia renovable:", ["", "Sí", "No"],key="renovable_Form1")
     station = st.selectbox("Estación del año:", ["", "Invierno", "Verano"],key="station_Form1")
 
@@ -52,8 +53,7 @@ if st.session_state.show_form == "form_1":
         else:
             st.success("Formulario 1 enviado exitosamente!")
             #st.write(nºperson,energy_price,station,renovable)
-
-            predecir_consumo(nºperson,energy_price,renovable,station)
+            predecir_consumo(nºperson,energy_price, 1 if renovable == "Sí" else 0,station,energy_type)
             # Aquí puedes añadir el método para procesar los datos ingresados
 
 elif st.session_state.show_form == "form_2":
