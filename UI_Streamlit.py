@@ -44,7 +44,7 @@ if st.session_state.show_form == "form_1":
     st.header("Predecir Consumo")
     nºperson = st.number_input("Número de personas en la vivienda:", min_value=1, step=1, key="nºperson_Form1")
     energy_price = st.number_input("Precio de la energía:", min_value=0.0, step=0.1, key="energy_price_Form1")
-    energy_type = st.selectbox("Tipo de energía:", ["", "Solar", "Eólica", "Hidroeléctrica", "Nuclear", "Carbón", "Gas natural"],key="energy_type_Form2")
+    energy_type = st.selectbox("Tipo de energía:", ["", "Solar", "Eólica", "Hidroeléctrica", "Nuclear", "Carbón", "Gas natural"],key="energy_type_Form1")
     renovable = st.selectbox("Energia renovable:", ["", "Sí", "No"],key="renovable_Form1")
     station = st.selectbox("Estación del año:", ["", "Invierno", "Verano"],key="station_Form1")
 
@@ -89,5 +89,6 @@ elif st.session_state.show_form == "form_3":
         if energy_consume <= 0 or renovable == "":
             st.error("Todos los campos deben ser completados correctamente.")
         else:
+            renovable = 1 if renovable == "Sí" else 0
             tipo_clasificacion = clasificar_energia(energy_consume, nºperson, renovable)
             st.write(f"Tipo de energía clasificada: {tipo_clasificacion}")

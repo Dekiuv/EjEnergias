@@ -73,4 +73,4 @@ def calcular_personas(consumo: float, precio_energia: float, tipo_energia: str, 
     # Hacer la predicción con el modelo
     prediccion = model.predict(nuevo_dato_df)
 
-    return int(prediccion[0])
+    return 1 if int(prediccion[0]) < 0 else int(prediccion[0]) 
