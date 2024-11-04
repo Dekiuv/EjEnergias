@@ -58,13 +58,13 @@ renovables = {
 }
 
 # Crear y escribir el archivo CSV en formato UTF-8
-with open(r'C:\Users\joant\OneDrive\Stucom\MasterIA\IA\Exercicis\Sistemes Experts\datos_consumo.csv', mode='w', newline='', encoding='utf-8') as file:
+with open(r'C:\Users\joant\Desktop\EjEnergias\DataSet\datos_consumo.csv', mode='w', newline='', encoding='utf-8') as file:
     writer = csv.writer(file)
     # Escribir encabezados
     writer.writerow(["id", "nombre", "consumo", "ciudad", "personas_vivienda", "precio_energia", "tipo_energia", "renovable", "estacion"])
 
     # Generar 5 filas de datos
-    for i in range(150):
+    for i in range(1500):
         # GENERAR DNI
         id_dni = generar_dni()
 
