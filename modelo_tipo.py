@@ -3,17 +3,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-# def clasificar_energia(consumo, personas, es_renovable):
-#     if consumo < 100 and es_renovable == "Sí":
-#         return "Energía renovable baja demanda"
-#     elif consumo >= 100 and es_renovable == "Sí":
-#         return "Energía renovable alta demanda"
-#     elif consumo < 100 and es_renovable == "No":
-#         return "Energía no renovable baja demanda"
-#     else:
-#         return "Energía no renovable alta demanda"
-    
-
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
