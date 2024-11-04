@@ -28,18 +28,6 @@ def calcular_personas(consumo: float, precio_energia: float, tipo_energia: str, 
     # Entrenar el modelo
     model.fit(X_train, y_train)
 
-    # Hacer predicciones en el conjunto de prueba
-    # y_pred = model.predict(X_test)
-
-    # # Calcular el error cuadrático medio (MSE) para evaluar el modelo
-    # mse = mean_squared_error(y_test, y_pred)
-    # print(f"Error cuadrático medio (MSE): {mse}")
-
-    # # Mostrar los coeficientes del modelo
-    # print("Coeficientes del modelo:")
-    # for feature, coef in zip(X.columns, model.coef_):
-    #     print(f"{feature}: {coef}")
-
     # Crear tu nuevo dato con las mismas columnas
 
     nuevo_dato = {
