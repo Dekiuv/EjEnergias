@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import mean_squared_error
 
 def predecir_consumo(n_personas: int ,precio_energia: float, renovable:int, estacion:str, tipo_energia : str):
@@ -23,22 +24,10 @@ def predecir_consumo(n_personas: int ,precio_energia: float, renovable:int, esta
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Crear el modelo de regresión lineal
-    model = LinearRegression()
+    model = KNeighborsRegressor(n_neighbors=5)
 
     # Entrenar el modelo
     model.fit(X_train, y_train)
-
-    # Hacer predicciones en el conjunto de prueba
-    # y_pred = model.predict(X_test)
-
-    # # Calcular el error cuadrático medio (MSE) para evaluar el modelo
-    # mse = mean_squared_error(y_test, y_pred)
-    # print(f"Error cuadrático medio (MSE): {mse}")
-
-    # # Mostrar los coeficientes del modelo
-    # print("Coeficientes del modelo:")
-    # for feature, coef in zip(X.columns, model.coef_):
-    #     print(f"{feature}: {coef}")
 
     # Crear tu nuevo dato con las mismas columnas
 
@@ -74,3 +63,5 @@ def predecir_consumo(n_personas: int ,precio_energia: float, renovable:int, esta
     prediccion = model.predict(nuevo_dato_df)
 
     return round(prediccion[0],2)
+
+print(predecir_consumo(5,0.75,1,"Invierno","solar"))

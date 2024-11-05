@@ -1,7 +1,8 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error, r2_score
 
 def calcular_personas(consumo: float, precio_energia: float, tipo_energia: str, renovable: int, estacion: str):
     
@@ -20,10 +21,10 @@ def calcular_personas(consumo: float, precio_energia: float, tipo_energia: str, 
     y = df['personas_vivienda']               # Variable objetivo
 
     # Dividir el conjunto de datos en entrenamiento y prueba (80%-20%)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.01, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Crear el modelo de regresión lineal
-    model = LinearRegression()
+    model = RandomForestRegressor(n_estimators=100, max_depth=10, random_state=42)
 
     # Entrenar el modelo
     model.fit(X_train, y_train)
@@ -61,6 +62,4 @@ def calcular_personas(consumo: float, precio_energia: float, tipo_energia: str, 
     # Hacer la predicción con el modelo
     prediccion = model.predict(nuevo_dato_df)
 
-    return 1 if int(prediccion[0]) < 0 else int(prediccion[0]) 
-
-print(calcular_personas(2.4,1.3,"eólica",1,"Invierno"))
+    return 1 if int(prediccion[0]) < 0 else int(prediccion[0])
