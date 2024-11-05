@@ -63,5 +63,3 @@ def predecir_consumo(n_personas: int ,precio_energia: float, renovable:int, esta
     prediccion = model.predict(nuevo_dato_df)
 
     return round(prediccion[0],2)
-
-print(predecir_consumo(5,0.75,1,"Invierno","solar"))
