@@ -4,7 +4,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 
 # Función para clasificar el tipo de energía
-def clasificar_energia(consumo: float, renovable: int, nºperson: int, precio_energia: float, estacion: str):
+def clasificar_energia(consumo: float, renovable: int, nºperson: int, estacion: str):
     # Leer los datos
     df = pd.read_csv('datos_consumo.csv')
 
@@ -35,7 +35,6 @@ def clasificar_energia(consumo: float, renovable: int, nºperson: int, precio_en
     nuevo_dato = {
         'consumo': [consumo],
         'personas_vivienda': [nºperson],
-        'precio_energia': [precio_energia],
         'renovable': [renovable],
         'estacion': [estacion]
     }
