@@ -62,3 +62,5 @@ def calcular_personas(consumo: float, precio_energia: float, tipo_energia: str, 
     prediccion = model.predict(nuevo_dato_df)
 
     return 1 if int(prediccion[0]) < 0 else int(prediccion[0]) 
+
+print(calcular_personas(2.4,1.3,"eólica",1,"Invierno"))
