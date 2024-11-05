@@ -81,6 +81,7 @@ elif st.session_state.show_form == "form_2":
 elif st.session_state.show_form == "form_3":
     st.header("Clasificar por tipo")
     energy_consume = st.number_input("Consumo de la energía:", min_value=0.0, step=0.1,key="energy_consume_Form3")
+    energy_price = st.number_input("Precio de la energía:", min_value=0.0, step=0.1,key="energy_price_Form2")
     nºperson = st.number_input("Número de personas en la vivienda:", min_value=1, step=1,key="nºperson_Form3")
     renovable = st.selectbox("Energia renovable:", ["", "Sí", "No"],key="renovable_Form3")
 
@@ -90,5 +91,5 @@ elif st.session_state.show_form == "form_3":
             st.error("Todos los campos deben ser completados correctamente.")
         else:
             renovable = 1 if renovable == "Sí" else 0
-            tipo_clasificacion = clasificar_energia(energy_consume, nºperson, renovable)
+            tipo_clasificacion = clasificar_energia(energy_consume, nºperson, renovable,energy_price)
             st.write(f"Tipo de energía clasificada: {tipo_clasificacion}")
